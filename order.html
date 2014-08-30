@@ -1,44 +1,30 @@
 <body>
-<script src="index.js"></script>
+
 <link href="application.css" rel="stylesheet">
+<script src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="index.js"></script>
+<ul class="nav nav-tabs" role="tablist">
+    <li><a href="index.html">Home</a></li>
+
+    <li class="active"><a href="order.html">Order</a></li>
+</ul>
 
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th style="width: 100px;">Menu Items</th>
+                    <th style="width: 50px;">Menu Items</th>
                     <th style="width: 50px;">Email Address</th>
                     <th style="width: 50px;">Phone Number</th>
-                    <th>description</th>
+                    <th style="width: 100px;">Special Instructions</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>backdrop</td>
-                    <td>boolean or the string <code>'static'</code></td>
-                    <td>true</td>
-                    <td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.</td>
+                    class = .receivedOrder
                 </tr>
-                <tr>
-                    <td>keyboard</td>
-                    <td>boolean</td>
-                    <td>true</td>
-                    <td>Closes the modal when escape key is pressed</td>
-                </tr>
-                <tr>
-                    <td>show</td>
-                    <td>boolean</td>
-                    <td>true</td>
-                    <td>Shows the modal when initialized.</td>
-                </tr>
-                <tr>
-                    <td>remote</td>
-                    <td>path</td>
-                    <td>false</td>
-                    <td><p>If a remote URL is provided, <strong>content will be loaded one time</strong> via jQuery's <code>load</code> method and injected into the <code>.modal-content</code> div. If you're using the data-api, you may alternatively use the <code>href</code> attribute to specify the remote source. An example of this is shown below:</p>
-                        <div class="highlight"><pre><code class="html"><span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">&quot;modal&quot;</span> <span class="na">href=</span><span class="s">&quot;remote.html&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#modal&quot;</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/a&gt;</span></code></pre></div>
-                    </td>
-                </tr>
+
                 </tbody>
             </table>
             </div>

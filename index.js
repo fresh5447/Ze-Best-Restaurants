@@ -1,6 +1,3 @@
-/**
- * Created by DavidTrinh on 8/29/14.
- */
 
 Parse.initialize("gJhHWhjPnw5FjWpcp9rexP1z15dlzTQrhvc5XfJy", "XILId6OYItAMYe7wl1E67nIVP99PYYh78t2Cndje");
 
@@ -8,6 +5,10 @@ $(function() {
 
 
     var fetchParseData = function() {
+
+
+///////////    BEGIN RESTAURANT QUERY  /////////
+
 
         var Restaurant = Parse.Object.extend("Restaurant");
         var query = new Parse.Query(Restaurant);
@@ -23,6 +24,13 @@ $(function() {
                 alert("Error: " + error.code + " " + error.message);
             }
         });
+////////// END RESTAURANT QUERY   //////////////////
+
+
+
+
+
+///////////   BEGIN menuITEM QUERY  ///////////////////
 
         var menuItem = Parse.Object.extend("menuItem");
         var query = new Parse.Query(menuItem);
@@ -48,9 +56,76 @@ $(function() {
             }
         });
 
+  ///////////////     END menuITEM QUERY    //////////////////////////
+
+
+
+
+
+  ///////////////     BEGIN ORDER QUERY       /////////////////////////
+//
+//        var Order = Parse.Object.extend("Order");
+//        var query = new Parse.Query(Order);
+//        query.find({
+//            success: function (results) {
+//                var orderList = '';
+//                results.forEach(function (o, i) {
+//                    orderList = $("<option />", { class: 'receivedOrder', value: o.id, text: o.attributes.emailAddress });
+//                    $('#receivedOrder').append(orderList);
+//                });
+//            },
+//            error: function (error) {
+//                alert("Error: " + error.code + " " + error.message);
+//            }
+//        });
+
+  ////////////       END ORDER QUERY     ////////////////////
+
     };
 
     fetchParseData();
+
+
+
+    ////// BEGIN SET ORDER FUNCTION    ////////////
+
+$('.btn btn-default').on('click', function(){
+
+   var notes = $('#notes').val();
+   var emailAddress = $('#emailAddress').val();
+   var phoneNumber = $('#phoneNumber').val();
+   // var menuItem = $('menuItem').val();
+
+    saveNewOrder();
+
+})
+
+
+
+    var saveNewOrder = function(emailAddress, phoneNumber, notes , menuItem, successCB) {
+        var orderItem = Parse.Object.extend("Order");
+        var menu = new orderItem();
+
+        menu.set("emailAddress", emailAddress);
+        menu.set("phoneNumber", phoneNumber);
+        menu.set("notes", notes);
+        menu.set("menuItem", menuItem);
+
+
+
+
+        menu.save(null, {
+            success: function(menu){
+                successCb();
+            },
+            error: function(menu, error) {
+                console.log('Failed to create a new object, with error code: ' + error.message);
+            }
+        });
+    };
+
+
+    ///////////  END SET ORDER FUNCTION
 
 
 
@@ -92,17 +167,17 @@ $(function() {
 
     //////// ATTEMPTING GET TO PUSH ORDER TO PARSE ///////
 
-    $.ajax({
-        type: "GET",
-        url: "https://github.com/codective.json",
-        success: function(data) {
-            var events = "";
-            data.forEach(function(eventLine, i) {
-                console.log(eventLine);
-                events += "<li><a href='" + eventLine.url + "'>" + eventLine.type + "</a></li>";
-            })
-            $("#github").append(events);
-        }
-    });
+//    $.ajax({
+//        type: "GET",
+//        url: "https://www.parse.com/apps/restaurant-application/collections#class/Order",
+//        success: function(data) {
+//            var Order = "";
+//            data.forEach(function(Order, i) {
+//                console.log(Order);
+//                Order += "<tr><a href='" + Order.url + "'>" + eventLine.type + "</a></tr>";
+//            })
+//            $("#github").append(events);
+//        }
+//    });
 
 });
