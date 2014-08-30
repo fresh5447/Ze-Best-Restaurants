@@ -65,7 +65,7 @@ $(function() {
     });
 
 
-
+//test//
     ////// ADDING UP THE SUM OF THE CHECKED BOX'S///////
 
 
