@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <script src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>
+   <!-- <script src="cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script> -->
     <link href="application.css" rel="stylesheet">
     <title></title>
 </head>
@@ -27,7 +27,7 @@
 
     </div>
     <div><a href="order.html"></a></div>
-    <script src="order.html"></script>
+
 </header>
 <!-------------------END OF HEADER SECTION------------>
 
@@ -58,7 +58,8 @@
     <div class="menuList">
 
         <div class="row">
-        <ul id="menuItem"> </ul>
+        <ul id="menuItem">
+            <option value="Please Select Value">Please select value</option> </ul>
 
         </div>
 
@@ -73,7 +74,7 @@
 </div>
 
 <!---------------USERS INFORMATION----------->
-<form role="form">
+<div role="fm">
     <div class="form-group">
         <label>Email address</label>
         <input type="email" id="emailAddress" name="email"required placeholder="Email address">
@@ -88,8 +89,8 @@
         <p class="help-block">Space is limited, be short.</p>
     </div>
 
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
+    <button id="submit" type="submit" class="btn btn-default">Submit</button>
+</div>
 
 
 
