@@ -237,5 +237,4 @@ $(function() {
 
 });
 
-
-tjings
+remove things
