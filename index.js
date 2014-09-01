@@ -82,11 +82,11 @@ $(function() {
                 $("#restaurant").on("change", function (event) {
 //                    alert("tittys");
 
-                  $("option:selected").each(function () {
+                    $("option:selected").each(function () {
 
-                       $('.item').hide().filter("[data-source=" + this.id + "]").show();
+                        $('.item').hide().filter("[data-source=" + this.id + "]").show();
 
-                  });
+                    });
 
 
                     $('li.item').each(function () {
@@ -100,7 +100,7 @@ $(function() {
 
                     var sum = 0;
                     $("input:checkbox").on("click", function () {
-                        console.log(($(this).attr("data-price")));
+
                         if ($(this).is(':checked')) {
                             sum = sum + parseInt($(this).attr("data-price"));
                         } else {
@@ -159,16 +159,16 @@ $(function() {
         console.log(notes,emailAddress, phoneNumber);
         /// Looping menuItems to add checked box's //////
         var item =[];
-        $('menuItem li').each(function () {
+        $('#menuItem li').each(function () {
 
-            if ($(this).children('input')[0].checked = true) {
-                item.push(this).text();
+            if ($(this).children('input')[0].checked) {
+                item.push($(this).text());
             }
 
 
         });
 
-        item = item.join(",")
+        item = item.join("")
 
 
         saveNewOrder(emailAddress, phoneNumber, notes, item);
@@ -203,7 +203,7 @@ $(function() {
 
     $('#tinySort').on("click", function(){
         $('tbody tr').tsort("td");
-        alert(this);
+
     });
 
 
